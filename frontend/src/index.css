@@ -1,0 +1,29 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  line-height: 1.5;
+}
+
+a { text-decoration: none; }
+button { font-family: inherit; }
+input, textarea, select { font-family: inherit; outline: none; }
+input:focus, textarea:focus, select:focus { border-color: #4fc3f7 !important; box-shadow: 0 0 0 3px rgba(79,195,247,0.15); }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+/* Navbar mobile */
+@media (max-width: 640px) {
+  .nav-toggle { display: block !important; }
+  .nav-closed { display: none !important; }
+  .nav-open { display: flex !important; flex-direction: column; width: 100%; padding: 8px 0; }
+}
+@media (min-width: 641px) {
+  .nav-toggle { display: none !important; }
+  .nav-closed, .nav-open { display: flex !important; }
+}
