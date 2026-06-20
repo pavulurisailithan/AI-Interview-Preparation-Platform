@@ -1,18 +1,13 @@
-FROM openjdk:21-jdk-slim
-
+FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
-
-COPY pom.xml .
-COPY mvnw .
 COPY .mvn .mvn
-
-RUN chmod +x ./mvnw
-RUN ./mvnw dependency:go-offline -B
-
+COPY mvnw pom.xml ./
+RUN chmod +x mvnw && ./mvnw dependency:go-offline -B
 COPY src ./src
-
 RUN ./mvnw clean package -DskipTests
 
+FROM eclipse-temurin:21-jre-alpine
+WORKDIR /app
+COPY --from=build /app/target/interview-prep-backend-1.0.0.jar app.jar
 EXPOSE 8080
-
-CMD ["java", "-jar", "target/interview-prep-backend-1.0.0.jar", "--spring.profiles.active=h2"]
+ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=h2"]

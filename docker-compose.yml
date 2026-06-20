@@ -10,11 +10,6 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=h2
       - SERVER_PORT=8080
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/api/auth/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
     networks:
       - app-network
 
@@ -23,17 +18,12 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "3000:80"
+      - "80:80"
     depends_on:
       - backend
-    environment:
-      - VITE_API_URL=http://localhost:8080
     networks:
       - app-network
 
 networks:
   app-network:
     driver: bridge
-
-volumes:
-  mysql_data:

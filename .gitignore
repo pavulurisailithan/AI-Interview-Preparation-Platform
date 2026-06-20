@@ -1,4 +1,4 @@
-# Backend
+# Backend build
 backend/target/
 backend/data/
 backend/uploads/
@@ -10,7 +10,8 @@ backend/backend_log.txt
 # Frontend
 frontend/node_modules/
 frontend/dist/
-frontend/.env
+frontend/.env.local
+frontend/.env.development.local
 
 # IDE
 .idea/
@@ -19,4 +20,4 @@ frontend/.env
 
 # OS
 .DS_Store
-Thumbs.db
+Thumbbs.db

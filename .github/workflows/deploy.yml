@@ -1,50 +1,18 @@
-name: Deploy to GitHub Pages
+name: Deploy to Render
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: frontend/package-lock.json
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-
-      - name: Build Backend
+      - name: Trigger Render Deploy
         run: |
-          cd backend
-          chmod +x mvnw
-          ./mvnw clean package -DskipTests
-
-      - name: Install Frontend Dependencies
-        run: |
-          cd frontend
-          npm ci
-
-      - name: Build Frontend
-        run: |
-          cd frontend
-          npm run build
-        env:
-          VITE_API_URL: https://your-backend-url.herokuapp.com
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/dist
+          echo "Push to main detected — Render auto-deploys from GitHub."
+          echo "Visit https://render.com/dashboard to monitor deployments."

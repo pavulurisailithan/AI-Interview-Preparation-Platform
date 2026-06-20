@@ -1,5 +1,3 @@
-version: "1"
-
 services:
   - type: web
     name: ai-interview-prep-backend
@@ -12,8 +10,8 @@ services:
         value: h2
       - key: SERVER_PORT
         value: 8080
-    
-  - type: web  
+
+  - type: web
     name: ai-interview-prep-frontend
     env: docker
     dockerfilePath: ./frontend/Dockerfile
