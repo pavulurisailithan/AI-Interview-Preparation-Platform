@@ -1,0 +1,49 @@
+🚀 FAST LIVE DEPLOYMENT - 5 MINUTES
+==========================================
+
+STEP 1: Create GitHub Repo (1 minute)
+--------------------------------------
+1. Go to: https://github.com/new
+2. Repository name: ai-interview-prep
+3. Make it PUBLIC ✅
+4. Click "Create repository" 
+5. Copy the HTTPS URL
+
+STEP 2: Push Code (2 minutes)
+-----------------------------
+Open Command Prompt in project folder and run:
+
+git init
+git add .
+git commit -m "Deploy AI Interview Platform"
+git branch -M main
+git remote add origin YOUR_GITHUB_URL_HERE
+git push -u origin main
+
+STEP 3: Deploy on Render (2 minutes)
+------------------------------------
+1. Go to: https://render.com
+2. Sign up with GitHub
+3. Click "New +" → "Blueprint"
+4. Select your repo "ai-interview-prep"
+5. Click "Apply"
+
+LIVE URLS (after 5-10 min):
+---------------------------
+Frontend: https://ai-interview-prep-frontend.onrender.com
+Backend:  https://ai-interview-prep-backend.onrender.com
+
+ADMIN LOGIN:
+-----------
+Email: admin@interviewprep.com
+Password: Admin@123
+
+ALTERNATIVE FAST METHOD:
+-----------------------
+Use Vercel for frontend only:
+1. Go to vercel.com
+2. Import GitHub repo
+3. Deploy (2 minutes)
+
+Your render.yaml file is already configured!
+Just follow these 3 steps and you'll be live!
