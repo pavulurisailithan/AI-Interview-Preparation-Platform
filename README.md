@@ -1,5 +1,7 @@
 # 🎯 AI Interview Preparation Platform
 
+🌐 **Live Demo:** https://ai-interview-prep-frontend-lt7a.onrender.com
+
 A full-stack web app for mock interview practice with AI-powered scoring, resume analysis, and performance tracking.
 
 ---
