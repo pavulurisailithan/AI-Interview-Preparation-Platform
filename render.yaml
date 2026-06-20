@@ -1,0 +1,27 @@
+version: "1"
+
+services:
+  - type: web
+    name: ai-interview-prep-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: h2
+      - key: SERVER_PORT
+        value: 8080
+    
+  - type: web  
+    name: ai-interview-prep-frontend
+    env: docker
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    plan: free
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: ai-interview-prep-backend
+          type: web
+          property: host
