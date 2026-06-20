@@ -17,6 +17,9 @@ services:
     dockerfilePath: ./docker/Dockerfile.frontend
     dockerContext: .
     plan: free
+    dockerBuildArgs:
+      - key: VITE_API_URL
+        value: https://ai-interview-prep-backend.onrender.com
     envVars:
       - key: BACKEND_URL
         value: https://ai-interview-prep-backend.onrender.com
