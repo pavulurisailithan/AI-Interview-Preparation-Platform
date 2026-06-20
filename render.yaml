@@ -8,7 +8,9 @@ services:
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: h2
-      - key: SERVER_PORT
+      - key: SPRING_BOOT_WEB_SERVER_PORT
+        value: 8080
+      - key: PORT
         value: 8080
 
   - type: web
