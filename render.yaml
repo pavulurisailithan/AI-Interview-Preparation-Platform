@@ -18,8 +18,8 @@ services:
     dockerContext: .
     plan: free
     envVars:
-      - key: VITE_API_URL
+      - key: BACKEND_URL
         fromService:
           name: ai-interview-prep-backend
           type: web
-          property: host
+          property: hostport
