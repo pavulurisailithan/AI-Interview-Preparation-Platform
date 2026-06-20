@@ -13,14 +13,10 @@ services:
 
   - type: web
     name: ai-interview-prep-frontend
-    env: static
-    buildCommand: cd frontend && npm ci && npm run build
-    staticPublishPath: frontend/dist
+    env: docker
+    dockerfilePath: ./docker/Dockerfile.frontend
+    dockerContext: .
     plan: free
     envVars:
-      - key: VITE_API_URL
+      - key: BACKEND_URL
         value: https://ai-interview-prep-backend.onrender.com
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
